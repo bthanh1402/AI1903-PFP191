@@ -1,0 +1,40 @@
+#problem 1 
+arr = list(map(int, input("input array:" ).split()))
+total = 0 
+for i in range(len(arr)):
+    total += arr[i]
+avg = total / len(arr)
+val = total
+for i in range(len(arr)):
+    dif = abs(avg -arr[i])
+    if dif < val:
+        val = dif
+print(val)
+
+#problem 2 (nang cap)
+while True:
+    try:
+        diemhe10 = float(input("Diem he 10:"))
+        break
+    except:
+        print('Error, please enter numeric input')
+
+if diemhe10 >= 8.5:
+    print('Diem chu: A\n Diem he 4: 4\n')
+elif diemhe10 >= 7.0:
+    print('Diem chu: B\n Diem he 4: 3\n')
+elif diemhe10 >= 5.5:
+    print('Diem chu: C\n Diem he 4: 2\n')
+elif diemhe10 >= 4.0:
+    print('Diem chu: D\n Diem he 4: 1\n')    
+else:
+    print('Diem chu: F\n Diem he 4: 0\n')    
+
+
+
+#problem3 
+array = list(map(int,input("Enter array:").split()))
+
+unique = set(array)
+for i in unique:
+    print(i)
