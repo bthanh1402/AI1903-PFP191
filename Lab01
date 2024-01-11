@@ -1,0 +1,30 @@
+Lab01a
+
+#Q3.1 Calculate the multiplication and sum of two numbers
+num1 = 20
+num2 = 40
+print('Sum: ', num1+num2)
+print('Product: ', num1*num2)
+
+#Q3.2 Write a program to iterate the first 10 numbers and in each iteration, print the sum of the current and previous number.
+temp = 0
+for i in range(10):
+    print('Sum of the current and previous number: ',i +temp)
+    temp = i 
+
+#Q3.3 Display three string “Name”, “Is”, “James” as “Name**Is**James”
+print('Name','Is','James',sep = '**')
+
+#Q4.1 Convert Decimal number to octal using print() output formatting
+decimalnum = input("Enter Decimal number to convert: ")
+
+num = int(decimalnum)
+octal = ""
+
+while (num != 0):
+    octal += str(num % 8)
+    num //= 8
+
+print('The octal number is:', octal[::-1])
+
+
