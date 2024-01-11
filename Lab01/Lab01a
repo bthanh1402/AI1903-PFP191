@@ -26,3 +26,22 @@ while (num != 0):
     num //= 8
 
 print('The octal number is:', octal[::-1])
+
+
+#Q4.1 Convert Decimal number to octal using print() output formatting
+decimalnum = input("Enter Decimal number to convert: ")
+
+num = int(decimalnum)
+octal = ""
+
+while (num != 0):
+    octal += str(num % 8)
+    num //= 8
+
+print('The octal number is:', octal[::-1])
+
+#Q4.2 Display float number with 2 decimal places using print()
+
+floatnum = 485.3953934
+
+print('Display float number with 2 decimal places {:.2f}'.format(floatnum))
