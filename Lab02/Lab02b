@@ -1,0 +1,151 @@
+#Q1.1
+while True:
+    n = int(input ("Enter an integer n > 5: "))
+    if (n > 5):
+        break
+    else:
+        print("Try again, n must > 5")
+
+
+#Q1.2
+def calculates1(n):
+    if n == 1:
+        return 1
+    n = n + calculates1(n-1) 
+    return n
+print('S1 = ', calculates1(n))
+
+#Q1.3
+def calculates2(n):
+    if n == 1:
+        return 1
+    n = n * calculates2(n-1)
+    return n
+print('S2 = ', calculates2(n))
+
+#Q1.4
+def calculates3(n):
+    if n == 1:
+        return 1
+    n = 1/n + calculates3(n-1)
+    return n
+    
+print('S3 =', calculates3(n))
+
+#Q1.5
+n = int(input('Re-put n: '))
+def checkprime(n):
+    if n < 2:
+        return False
+    else:
+        for i in range(2,n):
+            if (n % i == 0):
+                return False
+    return True
+
+print('n is prime: ', checkprime(n))
+
+
+#Q2
+m , n = map(int, input("Enter m and n: ").split())
+
+#Q2.1
+def checkprime(n):
+    if n < 2:
+        return False
+    else:
+        for i in range(2,n):
+            if (n % i == 0):
+                return False
+    return True
+
+def common_prime_divider(m,n):
+    if n > m:
+        m , n = n , m
+    ans = [] 
+    for i in range(1,n):
+        if (m % i == 0 ) and (n % i ==0):
+            if checkprime(i):
+                ans.append(i)
+    return ans
+
+print('All common prime dividers: ',common_prime_divider(m,n))
+
+#Q2.2
+def GCD(m,n):
+    if n > m:
+        m , n = n , m
+    max = 1
+    for i in range(1,n):
+        if (m % i == 0 ) and (n % i ==0):
+            if i > max:
+                max = i
+    return max
+
+print('greatest common divider: ', GCD(m,n))
+
+#Q2.3
+def LCM(m,n):
+    
+    if m > n:
+        ans = m 
+    else:
+        ans = n
+    while True:
+        if (ans % m ==0) and (ans % n == 0):
+            break
+        ans += 1
+    return ans
+    
+print('least common multiple: ', LCM(m,n))
+
+
+#Q3.1
+try:
+    n = int(input("Enter an integer n: "))
+except:
+    print("n is not an integer")
+
+#Q3.2
+def displaybinary(n):
+    ans = ""
+    while True:
+        ans += str(n % 2)
+        n //= 2
+        if (n // 2 == 0):
+            ans += str(n % 2)
+            break
+    return int(ans[::-1])
+
+print('Display n in binary: ',displaybinary(n))
+
+#Q3.3
+n = int(input('Re-put n: '))
+def calsum(n):
+    sum = 0
+    for i in range(len(str(n))):
+        sum += int(str(n)[i])
+    return sum
+
+print('Sum of all digits: ', calsum(n))
+
+#Q3.4
+def findreverse(n):
+    return int(str(n)[::-1])
+print('Reverse of n: ', findreverse(n))
+
+
+#Q4
+m , n = map(int, input("Enter m and n where m < n: ").split())
+ans = []
+
+def reverse(n):
+    return int(str(n)[::-1])
+
+for i in range(m,n+1):
+    if i == reverse(i):
+        ans.append(i)
+
+print(ans)
+
+    
