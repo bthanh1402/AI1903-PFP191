@@ -1,0 +1,59 @@
+#Lab0.3b 
+
+#1.Write a program that figures out whether one string is an anagram of another string. The program should ignore white space and punctuation.
+def checkanagram(s1,s2):
+
+    if len(s1) <= len(s2):
+        s1, s2 = s2, s1
+
+    counts1, counts2 = {}, {}
+    for i in range(len(s1)):
+        if s1[i] != ',' and s1[i] != ' ':
+            counts1[s1[i]] = counts1.get(s1[i],0) + 1
+        if i + 1 > len(s2):
+            continue
+        elif s2[i] != ',' and s2[i] != ' ':
+            counts2[s2[i]] = counts2.get(s2[i],0) + 1
+    return (counts1 == counts2)
+
+s1 = "parliament"
+s2 = "partial men"
+print(checkanagram(s1,s2))
+
+
+
+#2.Check hexa and convert to decimal
+
+hexa = input('Enter hexadecimal digits:')
+
+def checkhexa(s):
+    hexachar = {'A','B','C','D','E','F'}
+    for char in s:
+        if not (("0" <= char or char <= "9") or char in hexachar):
+            return False
+    return True
+
+def hexatodecimal(hexa):
+    decimal = 0
+    for i in range(len(hexa)):        
+        if not ('0' <= hexa[len(hexa)-i-1] <= '9'):
+            if (hexa[len(hexa)-i-1] == 'A'): deci = 10
+            if (hexa[len(hexa)-i-1] == 'B'): deci = 11
+            if (hexa[len(hexa)-i-1] == 'C'): deci = 12
+            if (hexa[len(hexa)-i-1] == 'D'): deci = 13
+            if (hexa[len(hexa)-i-1] == 'E'): deci = 14
+            if (hexa[len(hexa)-i-1] == 'F'): deci = 15
+            decimal += (16**i) *deci
+        else:
+            decimal += (16**i) *int(hexa[len(hexa)-i-1])
+    return decimal
+    
+if not checkhexa(hexa):
+    print('Error, not hexadecimal number')
+else:
+    print('Hexa to Decimal:',hexatodecimal(hexa))
+    
+    
+
+
+
