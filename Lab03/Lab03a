@@ -1,0 +1,136 @@
+#Lab3a
+
+#Q1.1
+n = 6
+for i in range (1,n):
+    for j in range(1,i+1):
+        print (j, end = ' ')
+    print('\n')
+
+#Q1.2
+def calsum(n):
+    sum = 0
+    for i in range(1,n+1):
+        sum += i
+    return sum
+n = int(input("Enter num: "))
+print(calsum(n))
+
+#Q2.1 print loop 
+n = 0
+while n <= 500:
+    if (n >= 150):
+        n += 5
+        continue
+    print (n)
+    n += 5
+
+#Q2.2 count digits
+num = 435345345
+count = 0
+for char in str(num):
+    count += 1
+print (count)
+
+#Q2.3 print reversed list
+list1 = [10,20,30,40]
+for i in range(len(list1)-1,-1,-1):
+    print (list1[i])
+
+#Q3.1 Create a string made of the middle four characters.
+s1 = "bfdgsaa"
+n = len(s1)
+print("middle four characters: ", s1[(n-4)//2: (n-4)//2 + 4:])
+
+
+#Q3.2 appending s2 in the middle of s1
+s1 = "Autl"
+s2 = "Kelly"
+index = len(s1) // 2
+s3 = s1[:index:] + s2 + s1[index::]
+print (s3)
+
+#Q3.3 String made of the first, middle, and last characters of each input string
+str1 = "america"
+str2 = "japan"
+def index(str):
+    return len(str) // 2
+str3 = str1[0] + str2[0] + str1[index(str1)] + str2[index(str2)] + str1[-1] + str2[-1]
+print(str3)
+
+#Q3.3 String made of the first, middle, and last characters of each input string
+str1 = "america"
+str2 = "japan"
+def index(str):
+    return len(str) // 2
+str3 = str1[0] + str2[0] + str1[index(str1)] + str2[index(str2)] + str1[-1] + str2[-1]
+print(str3)
+
+#Q3.4 arrange string characters such that lowercase letters should come first
+string1 = "PyNaTive"
+upper = ""
+lower = ""
+for char in string1:
+    if char.upper() == char:
+        upper += char
+    else:
+        lower += char
+arrange = lower + upper
+print(arrange)
+
+#Q3.5 enter string print number of digits, letters and other
+inputstring = input('Enter a string: ')
+numberOfLetters, numberOfDigits, numberOfOther = 0 , 0 ,0
+for char in inputstring:
+    if (str(char) >= "a" and str(char) <= "z") or (str(char) >= "A" and str(char) <= "Z"):
+        numberOfLetters += 1
+    elif (str(char) >= "0" and str(char) <= "9"):
+        numberOfDigits += 1
+    else:
+        numberOfOther += 1
+print('chars: ', numberOfLetters)
+print('digits: ', numberOfDigits)
+print('symbols: ', numberOfOther) 
+
+#Q4.1
+inputstring = input('Enter a string: ')
+ans = ""
+for char in inputstring:
+    if char.isdigit():
+        ans += char 
+print(ans)
+
+#Q4.2 Remove special symbols / punctuation from a string
+inputstr = input('Enter a string:')
+count = 1
+word = ""
+ans = []
+for char in inputstr:
+    if char == " " and word != "": #prevent space at the beginning
+        count += 1
+    
+    if count == 2: #check if found 
+        if word: #check if the word is not empty
+            ans.append(word)
+        word = ""
+        count = 1
+        
+    if char.isalpha() or char.isdigit():
+        word += char
+        continue
+ans.append(word)
+result = " ".join(ans)
+print(result)
+
+#Q4.3 remove empty string in list
+list = ["", "", "a", "b"]
+newlist = []
+for word in list:
+    if word:
+        newlist.append(word)
+print (newlist)
+
+#Q4.4
+str1 = "emme-is-a-data-scientist"
+list = str1.split('-')
+print (list)
