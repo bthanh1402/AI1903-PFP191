@@ -1,1 +1,90 @@
+#Q1.1
+createfile = open('sales.txt','w')
+#Q1.2
+from datetime import datetime
+datetime = datetime.now().strftime('%d-%m-%Y')
+filewithdate = open('filewithdate' + datetime,'w')
+#Q1.3
+import os
+filewpermission = open('sample1.txt','x')
+os.chmod('sample.txt', 0o777)
 
+#Q2.1
+file = open('newfile','w')
+file.write('Hello, World!')
+textfile = open('textfile.txt','w')
+textfile.write('Hello, World!')
+#Q2.2
+textfile.write('This is the overwritten content')
+#Q2.3
+lines = ['1','2','3']
+textfile.writelines(line + '\n' for line in lines)
+
+#Q3.1
+f = open('file.txt','w') 
+f.seek(0,0)
+#Q3.2
+f.seek(0,2)
+f.write("\nThis content is added to the end of the file")
+#Q3.3
+f.seek(0,1)
+f.close() 
+#Q3.4
+f = open('file.txt','rb') 
+f.seek(-1,2)
+#Q3.5
+print('file handle at:', f.tell())
+f.close()
+
+#Q4.1
+import os
+old_name = r"old.txt"
+new_name = r"new.txt"
+
+if os.path.isfile(new_name):
+    print("file already exists, cannot rename")
+else:
+    os.rename(old_name, new_name)
+
+#Q4.2
+import os
+file = os.getcwd()
+i = 1
+for file_name in os.listdir(file):
+    oldname = folder + file_name
+    newname = folder + "sales_" + i + ".txt"
+    i+= 1
+    os.rename(oldname, newname)
+print('New Names are')
+res = os.listdir(file)
+print(res)
+
+#Q4.3
+import os
+files_to_rename = ['sales_1.txt', 'sales_4.txt']
+folder = os.getcwd()
+for file in os.listdir(folder):
+    if file in files_to_rename:
+        old_name = os.path.join(folder, file)
+        #name = name without extension
+        name = os.path.splitext(file)[0]
+        new = name + '_new' + '.txt'
+        new_name = os.path.join(folder, new)
+        os.rename(old_name, new_name)
+# verify the result
+res = os.listdir(folder)
+print(res)
+
+#Q4.4
+from datetime import datetime
+currenttime = datetime.now().strftime('%d-%m-%Y')
+oldname = 'something.txt'
+newname = 'something' + currenttime + 'txt'
+
+#Q4.5
+folder = os.getcwd()
+for file in os.listdir(folder):
+    oldname = os.path.join(folder,file)
+    newname = oldname.replace('.pdf','.txt')
+    os.rename(oldname, newname)
+print(os.listdir(folder))
