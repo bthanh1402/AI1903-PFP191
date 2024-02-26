@@ -1,1 +1,74 @@
+#Q1.1
+def readfile(name = 'poem.txt'):
+    with open(name, 'r') as f:
+        print(f.readline().strip())
+        print(f.readline().strip())
 
+#Q1.2
+def count(name = 'story.txt'):
+    with open(name,'r') as f:
+        count = 0
+        for line in f.readlines():
+            if line[0] != 'T':
+                count += 1
+        print('Number of Lines not start with T:', count)
+
+#Q2.1
+def countword(name = 'story.txt'):
+    with open(name,'r') as f:
+        count = 0
+        for line in f.readlines():
+            words = len(line.split())
+            count += words
+        print('Number of words:', count)
+
+#Q2.2
+def threeword(name = 'poem.txt'):
+    with open(name,'r') as f:
+        res = ""
+        for line in f.readlines():
+            listofword = line.split()
+            for word in listofword:
+                if len(word) <= 3:
+                    res += word +" "
+        print(res)
+
+#Q3.1
+def countupper(name = 'story.txt'):
+    with open(name,'r') as f:
+        count = 0
+        for char in f.read():
+            if 'A' <= char <= 'Z':
+                print(char.strip())
+                count+= 1
+        print(count)    
+
+#Q3.2
+def countthisthese(name = 'article.txt'):
+    with open(name,'r+') as f:
+        count = 0
+        for line in f.readlines():
+            listofword = line.split()
+            for word in listofword:
+                if word == 'this' or word == 'these':
+                    count += 1
+        print(count)
+
+#Q4.1
+def hash_display(name = 'matter.txt'):
+    res = ""
+    with open(name, 'r') as f:
+        for char in f.read():
+            res += char+ '#'
+        print(res)
+
+#Q4.1
+def JTOI(name = 'WORDS.TXT'):
+    res = ""
+    with open(name, 'r') as f:
+        for char in f.read():
+            if char == 'J':
+                res += 'I'
+                continue
+            res += char
+        print(res)
